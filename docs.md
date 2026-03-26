@@ -28,7 +28,7 @@ To access this package under `pkgs.niri-stable`, you should use [`overlays.niri`
 
 The latest commit to the development branch of niri.
 
-Currently, this is exactly commit [`3819182`](https://github.com/YaLTeR/niri/tree/38191826cb1e5fb9051a7e141fefe4941a2b4bed) which was authored on `2026-05-10 05:04:05`.
+Currently, this is exactly commit [`44ef6cb`](https://github.com/YaLTeR/niri/tree/44ef6cb4909c0f64ce0d1de062a7365499b19c3d) which was authored on `2026-05-13 17:20:55`.
 
 > [!warning]
 > `niri-unstable` is not a released version, there are no stability guarantees, and it may break your workflow from itme to time.
@@ -2356,6 +2356,15 @@ A regular expression to match against the app id of the window.
 When non-null, for this field to match a window, a client must set the app id of its window and the app id must match this regex.
 
 
+## `programs.niri.settings.window-rules.*.matches.*.cgroup`
+- type: `null or regular expression` (where `regular expression` is a `string`)
+- default: `null`
+
+A regular expression to match against the cgroup path of the window's process.
+
+When non-null, for this field to match a window, the process that created its Wayland connection must have a readable cgroup and its path must match this regex.
+
+
 ## `programs.niri.settings.window-rules.*.matches.*.title`
 - type: `null or regular expression` (where `regular expression` is a `string`)
 - default: `null`
@@ -2443,6 +2452,15 @@ If none of these rules match a window, then this window rule will not be rejecte
 A regular expression to match against the app id of the window.
 
 When non-null, for this field to match a window, a client must set the app id of its window and the app id must match this regex.
+
+
+## `programs.niri.settings.window-rules.*.excludes.*.cgroup`
+- type: `null or regular expression` (where `regular expression` is a `string`)
+- default: `null`
+
+A regular expression to match against the cgroup path of the window's process.
+
+When non-null, for this field to match a window, the process that created its Wayland connection must have a readable cgroup and its path must match this regex.
 
 
 ## `programs.niri.settings.window-rules.*.excludes.*.title`

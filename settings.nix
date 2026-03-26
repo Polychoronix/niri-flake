@@ -2507,6 +2507,13 @@
                         When non-null, for this field to match a window, a client must set the title of its window and the title must match this regex.
                       '';
                     };
+                    cgroup = nullable regex // {
+                      description = ''
+                        A regular expression to match against the cgroup path of the window's process.
+
+                        When non-null, for this field to match a window, the process that created its Wayland connection must have a readable cgroup and its path must match this regex.
+                      '';
+                    };
                   }
                   {
                     is-urgent = nullable types.bool // {
